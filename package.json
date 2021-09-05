@@ -1,0 +1,57 @@
+{
+  "name": "apollo-rest-link-example",
+  "author": "narvidas",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@apollo/react-hooks": "3.0.1",
+    "apollo-boost": "0.4.4",
+    "apollo-link-rest": "0.7.3",
+    "graphql": "14.4.2",
+    "graphql-anywhere": "4.2.4",
+    "qs": "^6.10.1",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "3.0.1",
+    "styled-components": "4.3.2"
+  },
+  "devDependencies": {
+    "@apollo/react-testing": "^4.0.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "eslint-plugin-import": "^2.24.2",
+    "husky": "^7.0.2",
+    "json-server": "^0.16.3",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "typescript": "3.3.3"
+  },
+  "scripts": {
+    "start": "yarn start:api & yarn start:ui",
+    "start:ui": "PORT=4000 react-scripts start",
+    "start:api": "npx json-server --watch db.json",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,css,md,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

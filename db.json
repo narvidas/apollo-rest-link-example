@@ -1,0 +1,36 @@
+{
+  "person": [
+    {
+      "id": 1,
+      "name": "James Doe",
+      "age": 28,
+      "occupationId": 101
+    },
+    {
+      "id": 2,
+      "name": "Jackson Doe",
+      "age": 42,
+      "occupationId": 102
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "age": 65,
+      "occupationId": 103
+    }
+  ],
+  "occupation": [
+    {
+      "id": 101,
+      "title": "Barista"
+    },
+    {
+      "id": 102,
+      "title": "Engineer"
+    },
+    {
+      "id": 103,
+      "title": "Lawyer"
+    }
+  ]
+}
