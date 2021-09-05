@@ -1,25 +1,22 @@
-import { useMutation } from "@apollo/react-hooks";
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import styled from "styled-components";
-import { GET_PERSON, UPDATE_PERSON } from "./queries";
-
-const Card = styled.div`
-  padding: 2rem 3rem;
-`;
+import { useMutation } from '@apollo/react-hooks';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import { GET_PERSON, PersonData, UpdatePersonVars, UPDATE_PERSON } from '../PersonView.graphql';
+import { Card } from './Card';
 
 const UpdateButton = styled.button`
   margin-left: 0.5rem;
 `;
 
 export const Update = () => {
-  const { personId } = useParams();
-  const [name, setName] = useState("");
-  const clearForm = () => setName("");
+  const { personId } = useParams<{ personId: string }>();
+  const [name, setName] = useState('');
+  const clearForm = () => setName('');
 
-  const [updateName, { loading, error }] = useMutation(UPDATE_PERSON, {
+  const [updatePerson, { loading, error }] = useMutation<PersonData, UpdatePersonVars>(UPDATE_PERSON, {
     update: (cache, { data }) => {
-      const oldData = cache.readQuery({ query: GET_PERSON });
+      const oldData = cache.readQuery<PersonData>({ query: GET_PERSON });
       const updatedName = data.person.name;
 
       cache.writeQuery({
@@ -37,7 +34,7 @@ export const Update = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          updateName({
+          updatePerson({
             variables: { path: `/person/${personId}`, body: { name } },
           });
           clearForm();
