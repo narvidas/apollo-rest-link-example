@@ -32,7 +32,7 @@
     "json-server": "^0.16.3",
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
-    "typescript": "3.3.3"
+    "typescript": "^4.4.2"
   },
   "scripts": {
     "start": "yarn start:api & yarn start:ui",

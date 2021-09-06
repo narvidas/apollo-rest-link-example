@@ -17,11 +17,11 @@ export const Update = () => {
   const [updatePerson, { loading, error }] = useMutation<PersonData, UpdatePersonVars>(UPDATE_PERSON, {
     update: (cache, { data }) => {
       const oldData = cache.readQuery<PersonData>({ query: GET_PERSON });
-      const updatedName = data.person.name;
+      const updatedName = data?.person.name;
 
       cache.writeQuery({
         query: GET_PERSON,
-        data: { person: { ...oldData.person, name: updatedName } },
+        data: { person: { ...oldData?.person, name: updatedName } },
       });
     },
   });

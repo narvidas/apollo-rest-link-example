@@ -14,9 +14,9 @@ export const About = () => {
   if (error) return <Card>Error occured</Card>;
   return (
     <Card>
-      <div>Name: {data.person.name}</div>
-      <div>Age: {data.person.age}</div>
-      <div>Occupation: {data.person.occupation.title}</div>
+      <div>Name: {data?.person.name}</div>
+      <div>Age: {data?.person.age}</div>
+      <div>Occupation: {data?.person.occupation.title}</div>
     </Card>
   );
 };
