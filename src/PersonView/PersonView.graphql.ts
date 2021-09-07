@@ -18,14 +18,18 @@ interface Occupation {
 }
 
 export const GET_PERSON = gql`
+  fragment occupation on Person {
+    occupation @rest(path: "/occupation/{exportVariables.occupation}", type: "[Occupation]") {
+      title
+    }
+  }
+
   query getPerson($path: String!) {
     person @rest(type: "Person", path: $path) {
       occupationId @export(as: "occupation")
       name
       age
-      occupation @rest(path: "/occupation/{exportVariables.occupation}", type: "[Occupation]") {
-        title
-      }
+      ...occupation
     }
   }
 `;
